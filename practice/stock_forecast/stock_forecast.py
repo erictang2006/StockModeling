@@ -661,7 +661,7 @@ def plot_macd(data, ticker):
 
 if __name__ == "__main__":
 
-    ticker = 'SOFI'
+    ticker = 'WMT'
     
     horizons = {
         "tomorrow": 1, 
@@ -673,7 +673,7 @@ if __name__ == "__main__":
         }
     
     # Fetch historical stock data from 2020-01-01 to 2025-03-11
-    stock_data = fetch_historical_data(ticker, "2020-01-01", "2025-03-16")
+    stock_data = fetch_historical_data(ticker, "2020-01-01", "2025-03-17")
     
     # Preprocess the data and engineer features (e.g., moving averages, scaling)
     X_train, X_test, y_train, y_test, scaler, processed_data, features_list = preprocess_data(stock_data)
@@ -702,7 +702,7 @@ if __name__ == "__main__":
         print(f"{horizon}: ${real_price:.2f}")
 
     #debug first 100
-    #debug_first_100_predictions(model, X_test, y_test, scaler)
+    debug_first_100_predictions(model, X_test, y_test, scaler)
 
     #plots test vs predictions
     plot_test_predictions(trained_model, X_test, y_test, scaler)
